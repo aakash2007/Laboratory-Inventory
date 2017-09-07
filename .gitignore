@@ -101,4 +101,4 @@ ENV/
 .mypy_cache/
 
 inventory/migrations
-./db.sqlite3
+db.sqlite3
