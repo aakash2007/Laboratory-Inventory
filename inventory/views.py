@@ -7,6 +7,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from models import *
 
+from django.template import loader
+
 from django.utils.decorators import method_decorator
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -15,7 +17,8 @@ import csv
 import xlsxwriter, StringIO
 
 def index(request):
-	return HttpResponse("Index")
+	template = loader.get_template('inventory/index.html')
+	return render(request, 'inventory/index.html')
 
 @staff_member_required
 def LabExcel(request, **kwargs):
