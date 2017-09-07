@@ -8,11 +8,7 @@ from .models import *
 class ItemInline(admin.TabularInline):
 	model = Item
 	extra = 0
-
-class ItemAdmin(admin.ModelAdmin):
-	fields = ['item_name', 'item_count']
-	search_fields = ['item_name']
-	list_display = ['item_name', 'item_count']
+	readonly_fields = ['total_cost']
 
 class LaboratoryAdmin(admin.ModelAdmin):
 	fields = ['lab_name', 'lab_incharge']
@@ -22,4 +18,3 @@ class LaboratoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Laboratory, LaboratoryAdmin)
-admin.site.register(Item, ItemAdmin)
